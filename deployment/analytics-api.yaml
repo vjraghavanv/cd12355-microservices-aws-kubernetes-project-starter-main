@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: analytics-api
-        image: isjustintime/cd12355-admin-api:0.1.0
+        image: 954522806846.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:0.0.1
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -55,13 +55,5 @@ spec:
               name: db-secret
               key: DB_PASSWORD
         - name: DB_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: db-env
-              key: DB_HOST
-        - name: DB_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: db-env
-              key: DB_PORT      
+          value: app-db    
       restartPolicy: Always
