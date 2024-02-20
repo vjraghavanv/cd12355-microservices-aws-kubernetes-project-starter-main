@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: analytics-api
-        image: 954522806846.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:latest
+        image: 954522806846.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:1
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -55,5 +55,13 @@ spec:
               name: db-secret
               key: DB_PASSWORD
         - name: DB_HOST
-          value: app-db    
+          valueFrom:
+            configMapKeyRef:
+              name: db-env
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: db-env
+              key: DB_PORT
       restartPolicy: Always

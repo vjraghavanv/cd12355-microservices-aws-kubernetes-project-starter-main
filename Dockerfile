@@ -1,17 +1,20 @@
 FROM python:3.10-slim-buster
 
-USER root
+ENV DB_USERNAME=default_username
+ENV DB_PASSWORD=default_passowrd
+ENV DB_HOST=default_host
 
-WORKDIR /src
+# Set the working directory to /app
+WORKDIR /app
 
-COPY analytics/requirements.txt requirements.txt
+# Copy the current directory contents into the container at /app
+COPY /analytics/ /app
 
-# Dependencies required for psycopg2 (used for Postgres client)
-RUN apt update -y && apt install -y build-essential libpq-dev
+# Install any needed packages specified in requirements.txt
+RUN pip install -r /app/requirements.txt
 
-# Dependencies are installed during build time in the container itself so we don't have OS mismatch
-RUN pip install -r requirements.txt
+# Make port 5153 available to the world outside this container
+EXPOSE 5153
 
-COPY . .
-
+CMD ["python", "app/app.py"]
 CMD python app.py
