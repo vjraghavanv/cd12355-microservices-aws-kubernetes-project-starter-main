@@ -3,7 +3,8 @@ kind: ConfigMap
 data:
   DB_USERNAME: "postgres"
   DB_NAME: "postgres"
-  DB_HOST: "my-postgresql.default.svc.cluster.local"
+  DB_HOST: "my-postgresql"
   DB_PORT: "5432"
+  DB_PASSWORD: mO7QrPdoAX
 metadata:
-  name: db-env
+  name: app-config
