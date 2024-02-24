@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: analytics-api
-        image: 954522806846.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:4
+        image: 575152933064.dkr.ecr.us-east-1.amazonaws.com/coworking-checkin:1
         imagePullPolicy: Always
         livenessProbe:
           httpGet:

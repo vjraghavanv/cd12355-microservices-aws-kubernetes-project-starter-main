@@ -5,6 +5,6 @@ data:
   DB_NAME: "postgres"
   DB_HOST: "my-postgresql"
   DB_PORT: "5432"
-  DB_PASSWORD: mO7QrPdoAX
+  DB_PASSWORD: ryka1xdcJv
 metadata:
   name: app-config
